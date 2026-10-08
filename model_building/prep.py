@@ -14,8 +14,6 @@ df.drop(columns=["CustomerID"], inplace=True)
 # raw values. Encoding it here (e.g. LabelEncoder) would make training
 # and serving use different representations, silently breaking predictions.
 
-#df_updated.drop(columns=["ProdTaken"])
-
 X = df.drop(columns=["ProdTaken"])
 y = df["ProdTaken"]
 
