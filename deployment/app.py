@@ -6,6 +6,7 @@ import joblib
 # Load the model committed by the pipeline (sits next to this file)
 #model_path = os.path.join(os.path.dirname(__file__), "best_tour_pkg_prediction_model_v1.joblib")
 #model = joblib.load(model_path)
+
 model = joblib.load("./deployment/best_tour_pkg_prediction_model_v1.joblib")
 
 st.title("Tourism Package Prediction App")
@@ -72,7 +73,7 @@ if submit_button:
     }])
 
     prediction = model.predict(input_data)[0]
-    
+
     result = "Customer will select a tour pkg" if prediction == 1 else "Customer will not select a tour pkg"
     st.subheader("Prediction Result:")
     st.success(f"The model predicts: **{result}**")
