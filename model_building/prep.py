@@ -9,6 +9,9 @@ df = data.copy()
 df.drop(df.columns[0], axis=1, inplace=True)
 df.drop(columns=["CustomerID"], inplace=True)
 
+# Gender column has values "Fe Male" which can be accounted as female.
+df['Gender'] = df['Gender'].replace('Fe Male', 'Female')
+
 # NOTE: columns which needed one hot encoding are intentionally left as raw strings .
 # The training pipeline one-hot-encodes it, and the Streamlit app also sends
 # raw values. Encoding it here (e.g. LabelEncoder) would make training
